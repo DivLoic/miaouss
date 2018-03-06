@@ -3,7 +3,7 @@ package fr.xebia.ldi.chaptertwo
 /**
   * Created by loicmdivad.
   */
-object BoobleanMonoid {
+object BooleanMonoid {
 
   trait Semigroup[A] {
     def combine(x: A, y: A): A
