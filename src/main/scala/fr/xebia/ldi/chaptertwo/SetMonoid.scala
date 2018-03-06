@@ -5,11 +5,6 @@ package fr.xebia.ldi.chaptertwo
   */
 object SetMonoid {
 
-  implicit def MonoSet[A] = new Monoid[Set[A]] {
-    def empty: Set[A] = Set()
-    def combine(x: Set[A], y: Set[A]): Set[A] = x union y
-  }
-
   trait Semigroup[A] {
     def combine(x: A, y: A): A
   }
@@ -21,6 +16,22 @@ object SetMonoid {
   object Monoid {
     def apply[A](implicit monoid: Monoid[A]) =
       monoid
+  }
+
+  implicit def setUnion[A] = new Monoid[Set[A]] {
+    def empty: Set[A] = Set()
+    def combine(x: Set[A], y: Set[A]): Set[A] = x union y
+  }
+
+  implicit def setIntersect[A] = new Monoid[Set[A]] {
+    def empty: Set[A] = Set()
+    def combine(x: Set[A], y: Set[A]): Set[A] = x intersect y
+  }
+
+  implicit def setSsymDiff[A] = new Monoid[Set[A]] {
+    override def empty: Set[A] = Set()
+    override def combine(x: Set[A], y: Set[A]): Set[A] =
+      (x diff y) union (y diff x)
   }
 }
 
