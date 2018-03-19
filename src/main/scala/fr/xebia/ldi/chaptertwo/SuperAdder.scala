@@ -6,11 +6,10 @@ package fr.xebia.ldi.chaptertwo
 object SuperAdder extends App {
 
   import cats.Monoid
-  import cats.instances.int._
   import cats.syntax.monoid._
 
-  def add(items: List[Int]): Int =
-    items.foldLeft(Monoid[Int].empty)(_ |+| _)
+  def add(items: List[Int])(implicit monoid: Monoid[Int]): Int =
+    items.foldLeft(monoid.empty)(_ |+| _)
 
   def generalAdd[A](items: List[A])(implicit monoid: Monoid[A]): A =
     items.foldLeft(monoid.empty)(_ |+| _)
