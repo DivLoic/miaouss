@@ -1,4 +1,4 @@
-package fr.xebia.ldi.chapterone
+package fr.xebia.ldi.a_scalacats
 
 /**
   * Created by loicmdivad.

@@ -1,8 +1,8 @@
-package fr.xebia.ldi.chaptertree
+package fr.xebia.ldi.c_scalacats
 
 import cats.Functor
 import cats.syntax.functor._
-import fr.xebia.ldi.chaptertree.FunctTree.{Branch, Leaf, Tree}
+import fr.xebia.ldi.c_scalacats.FunctTree.{Branch, Leaf, Tree}
 
 import scala.annotation.tailrec
 
