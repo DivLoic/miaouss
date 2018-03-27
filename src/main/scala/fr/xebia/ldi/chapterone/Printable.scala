@@ -2,6 +2,7 @@ package fr.xebia.ldi.chapterone
 
 /**
   * Created by loicmdivad.
+  * 1.3 Exercise: Printable Library
   */
 trait Printable[A] {
   def format(a: A): String
@@ -19,7 +20,7 @@ object PrintableInstances {
     override def format(a: String): String = a
   }
 
-  implicit val printablecat = new Printable[Cat] {
+  implicit val printableCat = new Printable[Cat] {
     def format(cat: Cat) = {
       val name  = Printable.toFormat(cat.name)
       val age   = Printable.toFormat(cat.age)
@@ -47,11 +48,11 @@ object Cats extends App {
   import PrintableInstances._
   import Printable._
 
-  val cat = Cat("Garfield", 38, "ginger and black")
-  // cat: Cat = Cat(Garfield,38,ginger and black)
+  val cat1 = Cat("Garfield", 38, "ginger and black")
+  val cat2 = Cat("Miaouss", 14, ", a pokemon")
 
-  Printable.toFormat(cat)
-  // Garfield is a 38 year-old ginger and black cat.
+  println(Printable.toFormat(cat1))
 
-  println(cat.toFormat)
+  println(cat2.toFormat)
+
 }
